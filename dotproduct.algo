@@ -1,0 +1,32 @@
+PROCEDURE dot_product (o,p : ARRAY_OF INTEGER[], VAR verif : BOOLEAN )
+VAR
+    sum : INTEGER := 0;
+    i : INTEGER;
+
+BEGIN
+    FOR i FROM 1 TO o.length STEP 1  DO
+        sum := sum + o[i]*p[i];
+    END_FOR
+
+    IF (sum = 0) THEN
+        verif := TRUE;
+    ELSE
+        verif := FALSE;
+    END_IF
+
+END
+
+
+ALGORITHM AlgoPrincipal
+VAR
+    v1 : ARRAY_OF INTEGER[] := [1,2];
+    v2 : ARRAY_OF INTEGER[] := [4,5];
+    resultat : BOOLEAN;
+BEGIN
+    dot_product(v1,v2,resultat);
+    IF (resultat = TRUE) THEN
+        Write ("les vecteurs est orthogonaux");
+    ELSE
+        Write("les vecteurs n''est pas orthogonaux");
+    END_IF
+END
